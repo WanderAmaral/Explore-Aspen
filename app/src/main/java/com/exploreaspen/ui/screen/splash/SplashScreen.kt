@@ -1,4 +1,4 @@
-package com.exploreaspen.ui.screen
+package com.exploreaspen.ui.screen.splash
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
@@ -57,7 +56,7 @@ fun SplashScreen(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.height(18.dp))
             Text(
                 text = buildAnnotatedString {
-                    withStyle(style = SpanStyle(fontWeight = androidx.compose.ui.text.font.FontWeight.Bold)) {
+                    withStyle(style = SpanStyle(fontWeight = androidx.compose.ui.text.font.FontWeight.ExtraBold)) {
                         append("Health")
                     }
                     append("Track")

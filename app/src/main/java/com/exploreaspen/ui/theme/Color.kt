@@ -10,11 +10,14 @@ val GradientBlue = Brush.linearGradient(
     )
 )
 
+val BlueTitle = Color(0xFF33E4DB)
+val WhiteExtraLight = Color(0xFFE9F6FE)
+
 
 val GreenLight = Color(0xFF3B9B62)
 val GreenBase = Color(0xFF257F49)
 val GreenDark = Color(0xFF052914)
-val GreenExtraLight = Color(0xFFE9F3EF)
+val GreenExtraLight = Color(0xFFE9F6FE)
 
 val RedLight = Color(0xFFFDEDED)
 val RedBase = Color(0xFFF94144)
