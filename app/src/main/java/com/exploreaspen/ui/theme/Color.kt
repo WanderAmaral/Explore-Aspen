@@ -10,6 +10,14 @@ val GradientBlue = Brush.linearGradient(
     )
 )
 
+val GradientBlueTransparent = Brush.linearGradient(
+    colors = listOf(
+        Color(0x33E4DBFF), // Cor #33E4DB com alpha 0x33 (20% de opacidade)
+        Color(0x0000BBD3)  // Cor #00BBD3 com alpha 0x00 (totalmente transparente)
+    )
+)
+
+val TransparentGreen = Color(0x33FF5722)
 val BlueTitle = Color(0xFF33E4DB)
 val WhiteExtraLight = Color(0xFFE9F6FE)
 

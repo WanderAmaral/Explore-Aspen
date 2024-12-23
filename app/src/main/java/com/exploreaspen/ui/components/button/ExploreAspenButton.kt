@@ -1,18 +1,15 @@
-package com.exploreaspen.ui.components
+package com.exploreaspen.ui.components.button
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AirlineSeatLegroomExtra
-import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -23,11 +20,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.exploreaspen.ui.theme.BlueTitle
 import com.exploreaspen.ui.theme.GradientBlue
+import com.exploreaspen.ui.theme.GreenDark
 import com.exploreaspen.ui.theme.Typography
 
 @Composable
@@ -39,8 +35,7 @@ fun ExploreAspenButton(
     onClick: () -> Unit
 ) {
     Box(
-        modifier = modifier.background(GradientBlue, RoundedCornerShape(30.dp))
-    ) {
+        modifier = modifier.background(GradientBlue, RoundedCornerShape(60.dp))    ) {
         Button(
             modifier = modifier.heightIn(min = 56.dp),
             onClick = onClick,
@@ -59,6 +54,7 @@ fun ExploreAspenButton(
                     Icon(
                         imageVector = it,
                         contentDescription = "Ícone do botão",
+                        modifier = modifier.size(40.dp)
                     )
                 }
 
@@ -87,7 +83,7 @@ private fun ExploreAspenButtonWithTextPreview() {
     ExploreAspenButton(
         onClick = {},
         text = "Botão",
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth().background(Color.Transparent)
     )
 }
 
