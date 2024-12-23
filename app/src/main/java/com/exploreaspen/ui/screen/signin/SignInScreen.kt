@@ -2,7 +2,10 @@ package com.exploreaspen.ui.screen.signin
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,9 +16,13 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Fingerprint
+import androidx.compose.material.icons.filled.Mail
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,6 +34,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.exploreaspen.ui.components.button.ExploreAspenButton
 import com.exploreaspen.ui.components.header.ExploreAspenHeader
 import com.exploreaspen.ui.theme.BlueTitle
 import com.exploreaspen.ui.theme.Typography
@@ -35,6 +43,8 @@ import com.exploreaspen.ui.theme.leagueSpartanFontFamily
 
 @Composable
 fun SignInScreen(modifier: Modifier = Modifier) {
+
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -80,11 +90,11 @@ fun SignInScreen(modifier: Modifier = Modifier) {
                     )
                 },
                 keyboardOptions = KeyboardOptions.Default.copy(
-                    keyboardType = KeyboardType.Text // Define o tipo de teclado como texto.
+                    keyboardType = KeyboardType.Text
                 ),
                 colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = Color.Transparent, // Remove a borda quando focado
-                    unfocusedBorderColor = Color.Transparent // Remove a borda quando não focado
+                    focusedBorderColor = Color.Transparent,
+                    unfocusedBorderColor = Color.Transparent
                 )
             )
 
@@ -94,7 +104,6 @@ fun SignInScreen(modifier: Modifier = Modifier) {
             OutlinedTextField(
                 value = "",
                 onValueChange = {},
-
                 modifier = modifier
                     .padding(horizontal = 1.dp, vertical = 8.dp)
                     .fillMaxWidth()
@@ -102,19 +111,71 @@ fun SignInScreen(modifier: Modifier = Modifier) {
                 shape = RoundedCornerShape(17.dp),
                 placeholder = {
                     Text(
-                        text = "",
+                        text = "*********",
                         style = TextStyle(BlueTitle, fontSize = 18.sp)
                     )
                 },
                 keyboardOptions = KeyboardOptions.Default.copy(
-                    keyboardType = KeyboardType.Password // Define o tipo do teclado como senha
+                    keyboardType = KeyboardType.Password
                 ),
                 visualTransformation = PasswordVisualTransformation(),
                 colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = Color.Transparent, // Remove a borda quando focado
-                    unfocusedBorderColor = Color.Transparent // Remove a borda quando não focado
+                    focusedBorderColor = Color.Transparent,
+                    unfocusedBorderColor = Color.Transparent
                 )
             )
+            TextButton(
+                onClick = { },
+                modifier = modifier.align(Alignment.End),
+                contentPadding = PaddingValues(0.dp)
+            ) {
+                Text(
+                    text = "Forget Password",
+                    style = Typography.bodyMedium.copy(color = BlueTitle),
+                    modifier = modifier.padding(top = 0.dp)
+
+                )
+            }
+            Spacer(modifier = modifier.height(20.dp))
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(color = Color.White),
+                contentAlignment = Alignment.Center
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    ExploreAspenButton(
+                        modifier = Modifier.width(250.dp),
+                        text = "Log In",
+                        onClick = {}
+                    )
+                    Spacer(modifier = Modifier.height(50.dp))
+                    Text(text = "or sign up with", style = Typography.bodyMedium)
+                    Spacer(modifier = Modifier.height(20.dp))
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(16.dp)
+                    ) {
+                        ExploreAspenButton(onClick = {}, iconRes = Icons.Filled.Mail)
+                        ExploreAspenButton(onClick = {}, iconRes = Icons.Filled.Fingerprint)
+                    }
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+
+                    ) {
+                        Text(text = "Don’t have an account?")
+                        TextButton(onClick = { }, contentPadding = PaddingValues(0.dp)) {
+                            Text(
+                                text = "Sign Up",
+                                style = Typography.bodyMedium.copy(color = BlueTitle)
+                            )
+                        }
+                    }
+                }
+            }
         }
     }
 }
