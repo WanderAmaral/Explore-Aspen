@@ -29,11 +29,12 @@ import androidx.compose.ui.unit.dp
 import com.exploreaspen.ui.components.button.ExploreAspenButton
 import com.exploreaspen.ui.components.header.ExploreAspenHeader
 import com.exploreaspen.ui.screen.signup.components.input.SignUpInput
+import com.exploreaspen.ui.states.SignUpUiState
 import com.exploreaspen.ui.theme.BlueTitle
 import com.exploreaspen.ui.theme.Typography
 
 @Composable
-fun SignUpScreen(modifier: Modifier = Modifier) {
+fun SignUpScreen(modifier: Modifier = Modifier, uiState: SignUpUiState,onSignUpClick: () -> Unit) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -121,5 +122,6 @@ fun SignUpScreen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun SignUpScreenPreview() {
-    SignUpScreen()
+    SignUpScreen(onSignUpClick = {}, uiState = SignUpUiState())
 }
+

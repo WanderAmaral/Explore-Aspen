@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "26314232822",
+    "project_id": "exploreapp-d7384",
+    "storage_bucket": "exploreapp-d7384.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26314232822:android:d703c3be873ecacffaadd7",
+        "android_client_info": {
+          "package_name": "com.exploreaspen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMYAGLE4Pn0zM21dddTE4pHredWn4IRMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
