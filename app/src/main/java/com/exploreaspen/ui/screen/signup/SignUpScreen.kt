@@ -89,7 +89,7 @@ fun SignUpScreen(
             text = "New Account",
             modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.TopCenter)
+                .align(Alignment.TopCenter), navController = navController
         )
 
         Column(
@@ -98,9 +98,7 @@ fun SignUpScreen(
                 .padding(horizontal = 30.dp, vertical = 20.dp)
                 .verticalScroll(state = rememberScrollState())
         ) {
-            ExploreAspenButton(iconRes = Icons.Filled.Logout,
-                modifier = Modifier.background(Color.Transparent, RoundedCornerShape(60.dp)),
-                onClick = { authViewModel.signout() })
+
             Text(text = "Email", style = Typography.headlineMedium)
             SignUpInput(
                 placeholder = "example@example.com",

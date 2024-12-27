@@ -25,13 +25,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.exploreaspen.ui.components.button.ExploreAspenButton
 import com.exploreaspen.ui.theme.GradientBlue
 import com.exploreaspen.ui.theme.GradientBlueTransparent
 import com.exploreaspen.ui.theme.Typography
 
 @Composable
-fun ExploreAspenHeader(modifier: Modifier = Modifier, text: String) {
+fun ExploreAspenHeader(modifier: Modifier = Modifier, text: String, navController: NavController) {
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -43,7 +44,7 @@ fun ExploreAspenHeader(modifier: Modifier = Modifier, text: String) {
         ExploreAspenButton(
             iconRes = Icons.Filled.ChevronLeft,
             modifier = Modifier.background(Color.Transparent, RoundedCornerShape(60.dp)),
-            onClick = {}
+            onClick = { navController.popBackStack() }
         )
         Text(
             text = text,
@@ -62,5 +63,5 @@ fun ExploreAspenHeader(modifier: Modifier = Modifier, text: String) {
 @Preview
 @Composable
 private fun ExploreAspenHeaderPreview() {
-    ExploreAspenHeader(text = "Log In")
+    //ExploreAspenHeader(text = "Log In")
 }
