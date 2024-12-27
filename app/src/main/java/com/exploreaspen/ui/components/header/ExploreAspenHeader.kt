@@ -15,6 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -53,6 +54,7 @@ fun ExploreAspenHeader(modifier: Modifier = Modifier, text: String) {
             textAlign = TextAlign.Center,
             color = Color.White
         )
+
         Spacer(modifier = Modifier.width(48.dp))
     }
 }

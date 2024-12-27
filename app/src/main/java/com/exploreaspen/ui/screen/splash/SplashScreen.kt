@@ -23,16 +23,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.exploreaspen.R
 import com.exploreaspen.ui.theme.GradientBlueTheme
 import kotlinx.coroutines.delay
+import np.com.bimalkafle.firebaseauthdemoapp.AuthViewModel
 
 @Composable
-fun SplashScreen(modifier: Modifier = Modifier) {
+fun SplashScreen(modifier: Modifier = Modifier, navController: NavController, authViewModel: AuthViewModel) {
 
     LaunchedEffect(key1 = Unit) {
         delay(4_000)
-        // definir aqui a navegação desta tela
+        navController.navigate("signIn")
     }
 
 
@@ -72,5 +74,5 @@ fun SplashScreen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun SplashScreenPreview() {
-    SplashScreen()
+    //SplashScreen()
 }

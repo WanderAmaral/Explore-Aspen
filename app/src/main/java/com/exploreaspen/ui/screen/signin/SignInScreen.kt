@@ -34,15 +34,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.exploreaspen.ui.components.button.ExploreAspenButton
 import com.exploreaspen.ui.components.header.ExploreAspenHeader
 import com.exploreaspen.ui.theme.BlueTitle
 import com.exploreaspen.ui.theme.Typography
 import com.exploreaspen.ui.theme.WhiteExtraLight
 import com.exploreaspen.ui.theme.leagueSpartanFontFamily
+import np.com.bimalkafle.firebaseauthdemoapp.AuthViewModel
 
 @Composable
-fun SignInScreen(modifier: Modifier = Modifier) {
+fun SignInScreen(modifier: Modifier = Modifier, navController: NavController, authViewModel: AuthViewModel) {
 
 
     Column(
@@ -167,7 +169,7 @@ fun SignInScreen(modifier: Modifier = Modifier) {
 
                     ) {
                         Text(text = "Don’t have an account?")
-                        TextButton(onClick = { }, contentPadding = PaddingValues(0.dp)) {
+                        TextButton(onClick = { navController.navigate("signUp") }, contentPadding = PaddingValues(0.dp)) {
                             Text(
                                 text = "Sign Up",
                                 style = Typography.bodyMedium.copy(color = BlueTitle)
@@ -183,5 +185,5 @@ fun SignInScreen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun SignInScreenPreview() {
-    SignInScreen()
+    //SignInScreen()
 }
