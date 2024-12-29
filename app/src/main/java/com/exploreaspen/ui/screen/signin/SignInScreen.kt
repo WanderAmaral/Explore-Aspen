@@ -75,7 +75,7 @@ fun SignInScreen(modifier: Modifier = Modifier, navController: NavController, au
             .verticalScroll(state = rememberScrollState()).padding(top = 40.dp),
 
         ) {
-        ExploreAspenHeader(text = "Log In", navController = navController)
+        ExploreAspenHeader(text = "Log In", navController = navController, buttonBack = false)
 
         Column(modifier = modifier.padding(horizontal = 30.dp, vertical = 40.dp)) {
             Spacer(modifier = Modifier.width(48.dp))
@@ -96,7 +96,7 @@ fun SignInScreen(modifier: Modifier = Modifier, navController: NavController, au
             Spacer(modifier = Modifier.height(50.dp))
 
 
-            Text(text = "Email or Mobile Number", style = Typography.headlineMedium)
+            Text(text = "Email or Name", style = Typography.headlineMedium)
 
             SignUpInput(
                 placeholder = "example@example.com",

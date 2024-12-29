@@ -32,7 +32,7 @@ import com.exploreaspen.ui.theme.GradientBlueTransparent
 import com.exploreaspen.ui.theme.Typography
 
 @Composable
-fun ExploreAspenHeader(modifier: Modifier = Modifier, text: String, navController: NavController) {
+fun ExploreAspenHeader(modifier: Modifier = Modifier, text: String, navController: NavController, buttonBack: Boolean) {
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -41,11 +41,13 @@ fun ExploreAspenHeader(modifier: Modifier = Modifier, text: String, navControlle
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        ExploreAspenButton(
-            iconRes = Icons.Filled.ChevronLeft,
-            modifier = Modifier.background(Color.Transparent, RoundedCornerShape(60.dp)),
-            onClick = { navController.popBackStack() }
-        )
+        if (buttonBack) {
+            ExploreAspenButton(
+                iconRes = Icons.Filled.ChevronLeft,
+                modifier = Modifier.background(Color.Transparent, RoundedCornerShape(60.dp)),
+                onClick = { navController.popBackStack() }
+            )
+        }
         Text(
             text = text,
             style = Typography.headlineLarge,

@@ -32,7 +32,8 @@ fun ExploreAspenButton(
     text: String? = null,
     textColor: Color = Color.White,
     iconRes: ImageVector? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    colorButton: Color = Color.White
 ) {
     Box(
         modifier = modifier.background(GradientBlue, RoundedCornerShape(60.dp))    ) {
@@ -54,7 +55,8 @@ fun ExploreAspenButton(
                     Icon(
                         imageVector = it,
                         contentDescription = "Ícone do botão",
-                        modifier = modifier.size(40.dp)
+                        modifier = modifier.size(40.dp),
+                        tint = colorButton
                     )
                 }
 

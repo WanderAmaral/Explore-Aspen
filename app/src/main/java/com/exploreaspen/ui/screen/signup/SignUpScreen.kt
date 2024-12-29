@@ -49,6 +49,7 @@ import com.exploreaspen.ui.theme.Typography
 import com.exploreaspen.ui.viewmodels.SignUpViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import np.com.bimalkafle.firebaseauthdemoapp.AuthState
 import np.com.bimalkafle.firebaseauthdemoapp.AuthViewModel
 
@@ -62,17 +63,20 @@ fun SignUpScreen(
     authViewModel: AuthViewModel
 ) {
 
-
     val uiState by viewModel.uiState
-
 
     val authState = authViewModel.authState.observeAsState()
     val context = LocalContext.current
 
     LaunchedEffect(authState.value) {
-        when(authState.value) {
-             is AuthState.Authenticated -> navController.navigate("homepage")
-            is AuthState.Error -> Toast.makeText(context, (authState.value as AuthState.Error).message, Toast.LENGTH_SHORT).show()
+        when (authState.value) {
+            is AuthState.Authenticated -> navController.navigate("homepage")
+            is AuthState.Error -> Toast.makeText(
+                context,
+                (authState.value as AuthState.Error).message,
+                Toast.LENGTH_SHORT
+            ).show()
+
             else -> Unit
         }
     }
@@ -89,7 +93,7 @@ fun SignUpScreen(
             text = "New Account",
             modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.TopCenter), navController = navController
+                .align(Alignment.TopCenter), navController = navController, buttonBack = true
         )
 
         Column(
@@ -98,6 +102,13 @@ fun SignUpScreen(
                 .padding(horizontal = 30.dp, vertical = 20.dp)
                 .verticalScroll(state = rememberScrollState())
         ) {
+
+            Text(text = "Name", style = Typography.headlineMedium)
+            SignUpInput(
+                placeholder = "Jhon Doe",
+                value = uiState.name,
+                onValueChange = { viewModel.setName(it) })
+            Spacer(modifier = Modifier.height(10.dp))
 
             Text(text = "Email", style = Typography.headlineMedium)
             SignUpInput(
@@ -132,7 +143,7 @@ fun SignUpScreen(
                 ExploreAspenButton(
                     modifier = Modifier.width(250.dp),
                     text = "Create Account",
-                    onClick = { authViewModel.signup(uiState.email, uiState.password) }
+                    onClick = { authViewModel.signup(uiState.email, uiState.password, uiState.name) }
                 )
                 Spacer(modifier = Modifier.height(10.dp))
                 Text(text = "or sign up with", style = Typography.bodySmall)
@@ -154,6 +165,13 @@ fun SignUpScreen(
 @Preview
 @Composable
 private fun SignUpScreenPreview() {
-    //SignUpScreen(onSignUpClick = {}, uiState = SignUpUiState())
+    var navController = rememberNavController()
+
+    SignUpScreen(
+        onSignUpClick = {},
+        uiState = SignUpUiState(),
+        authViewModel = AuthViewModel(),
+        navController = navController
+    )
 }
 
