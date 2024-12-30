@@ -46,30 +46,26 @@ fun ExploreAspenCategoryFilterChip(
             verticalArrangement = Arrangement.Center,
             modifier = Modifier
                 .clip(RoundedCornerShape(16.dp))
-                .background(if (isSelected) BlueTitle else Color.White)
                 .border(
-                    width = if (isSelected) 0.dp else 1.dp,
-                    color = if (isSelected) Color.Transparent else Gray300,
+                    width = 0.dp,
+                    color = Color.Transparent,
                     shape = RoundedCornerShape(16.dp)
                 )
                 .padding(vertical = 8.dp, horizontal = 12.dp)
                 .clickable { onClick(!isSelected) }
         ) {
-            // Ícone
             category.icon?.let {
                 Icon(
                     painter = painterResource(id = it),
                     contentDescription = "Ícone de Filtro de Categoria",
                     modifier = Modifier.size(24.dp),
-                    tint = if (isSelected) Color.White else BlueTitle
+                    tint =  BlueTitle
                 )
             }
-
-            // Texto
             Text(
                 text = category.name,
                 style = Typography.bodyMedium,
-                color = if (isSelected) Color.White else BlueTitle,
+                color =  BlueTitle,
                 modifier = Modifier.padding(top = 4.dp)
             )
         }
@@ -84,7 +80,6 @@ private fun NearbyCategoryFilterChipPreview() {
         category = Category(id = "1", name = "Favorite"),
         isSelected = true,
         onClick = {},
-
         )
 }
 
