@@ -34,10 +34,9 @@ fun MyAppNavigation(modifier: Modifier = Modifier, authViewModel: AuthViewModel)
         }
         composable("homepage") {
             HomePageScreen(
-                navController = navController,
+               navController = navController,
                 authViewModel = authViewModel,
-
-                )
+            )
         }
     })
 }

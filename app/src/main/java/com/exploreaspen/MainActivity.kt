@@ -21,6 +21,7 @@ import com.exploreaspen.ui.states.SignUpUiState
 import com.exploreaspen.ui.theme.ExploreAspenTheme
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.jakewharton.threetenabp.AndroidThreeTen
 import kotlinx.coroutines.flow.callbackFlow
 import np.com.bimalkafle.firebaseauthdemoapp.AuthViewModel
 import java.util.concurrent.Flow
@@ -30,6 +31,7 @@ private const val TAG = "MainActivity"
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AndroidThreeTen.init(this)
 
         val auth = Firebase.auth
         Log.i(TAG, "onCreate: ${auth.currentUser}")

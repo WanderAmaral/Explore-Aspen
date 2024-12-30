@@ -23,6 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.exploreaspen.data.model.Category
+import com.exploreaspen.ui.theme.BlueParagrapph
 import com.exploreaspen.ui.theme.BlueTitle
 import com.exploreaspen.ui.theme.Gray300
 import com.exploreaspen.ui.theme.Gray400
@@ -37,7 +38,7 @@ fun ExploreAspenCategoryFilterChip(
 ) {
 
     Row(
-        modifier = modifier.padding(2.dp),
+        modifier = modifier,
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -51,21 +52,21 @@ fun ExploreAspenCategoryFilterChip(
                     color = Color.Transparent,
                     shape = RoundedCornerShape(16.dp)
                 )
-                .padding(vertical = 8.dp, horizontal = 12.dp)
+                .padding(vertical = 2.dp, horizontal = 8.dp)
                 .clickable { onClick(!isSelected) }
         ) {
             category.icon?.let {
                 Icon(
                     painter = painterResource(id = it),
                     contentDescription = "Ícone de Filtro de Categoria",
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier.size(30.dp),
                     tint =  BlueTitle
                 )
             }
             Text(
                 text = category.name,
-                style = Typography.bodyMedium,
-                color =  BlueTitle,
+                style = Typography.bodySmall,
+                color =  BlueParagrapph,
                 modifier = Modifier.padding(top = 4.dp)
             )
         }

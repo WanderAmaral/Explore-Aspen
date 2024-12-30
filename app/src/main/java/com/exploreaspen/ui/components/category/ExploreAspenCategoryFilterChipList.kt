@@ -11,6 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -34,15 +35,17 @@ fun ExploreAspenCategoryFilterChipList(
         }
     }
     LazyRow(
-        modifier = modifier.fillMaxWidth(),
-        contentPadding = PaddingValues(horizontal = 24.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        modifier = modifier
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         items(items = categories, key = { it.id }) { category ->
             ExploreAspenCategoryFilterChip(
                 category = category,
                 isSelected = category.id == selectedCategoryId,
-                onClick = { isSelected -> if (isSelected) selectedCategoryId = category.id })
+                onClick = { isSelected -> if (isSelected) selectedCategoryId = category.id }
+            )
         }
     }
 }

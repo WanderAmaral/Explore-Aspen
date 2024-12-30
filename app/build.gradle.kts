@@ -59,6 +59,7 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.kotlin.serialization)
+    implementation ("com.jakewharton.threetenabp:threetenabp:1.4.4")
 
 
     implementation(libs.androidx.core.ktx)

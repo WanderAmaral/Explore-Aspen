@@ -33,7 +33,7 @@ import np.com.bimalkafle.firebaseauthdemoapp.AuthViewModel
 fun SplashScreen(modifier: Modifier = Modifier, navController: NavController, authViewModel: AuthViewModel) {
 
     LaunchedEffect(key1 = Unit) {
-        delay(4_000)
+        delay(2_000)
         navController.navigate("signIn")
     }
 
